@@ -73,11 +73,7 @@ Tips： 如果我们想更改为指定的配置文件 prod.config.js 来打包�
 
 这样可以通过 npm run dev 来启动项目：
 
-![image-20220702115330905](/Users/wanmian/Library/Application Support/typora-user-images/image-20220702115330905.png)
-
 使用 npm run build 可以实现打包：
-
-![image-20220702115451548](/Users/wanmian/Library/Application Support/typora-user-images/image-20220702115451548.png)
 
 可以看到生成了一个 dist 目录，里面有一个 bundle.js 文件。
 
@@ -218,8 +214,6 @@ sourceMap?: SourceMap,
 
 运行 npm run dev 可以看到 wp 被替换为 xiaoqi 。
 
-![image-20220703103708300](/Users/wanmian/Library/Application Support/typora-user-images/image-20220703103708300.png)
-
 ### 实现一个异步 loader
 
 在某些耗时久的场景下，比如处理网络请求的结果，我们可以使用 异步 loader ，这样不会阻塞整个构建。
@@ -227,8 +221,6 @@ sourceMap?: SourceMap,
 #### 创建 async.txt 文件
 
 在 src 目录下创建 async.txt 文件，随便写点内容。
-
-![image-20220724130758332](/Users/wanmian/Library/Application Support/typora-user-images/image-20220724130758332.png)
 
 #### 创建异步 loader
 
@@ -280,8 +272,6 @@ document.write(`</br>异步loader: ${txt}`)
 
 npm run dev 可以看到 async.txt 文件下的内容被打印出来。
 
-![image-20220724130858813](/Users/wanmian/Library/Application Support/typora-user-images/image-20220724130858813.png)
-
 ### 实现一个渲染 markdown 的 loader
 
 简易版 mark-loader，借助 markdown-it 库的能力。
@@ -289,8 +279,6 @@ npm run dev 可以看到 async.txt 文件下的内容被打印出来。
 #### 创建 md 文件
 
 首先我们在 src 下创建一个 md 文件。
-
-![image-20220724164802053](/Users/wanmian/Library/Application Support/typora-user-images/image-20220724164802053.png)
 
 #### 编写 mark-loader
 
@@ -347,8 +335,6 @@ document.body.appendChild(div)
 
 npm run dev 运行，可以看到 md 文件以 html 的形式渲染出来。
 
-![image-20220724171059018](/Users/wanmian/Library/Application Support/typora-user-images/image-20220724171059018.png)
-
 ### 实现一个生成雪碧图的 loader
 
 简易版 sprite-loader，借助 spritesmith 库的能力。
@@ -356,8 +342,6 @@ npm run dev 运行，可以看到 md 文件以 html 的形式渲染出来。
 #### 创建 css 文件
 
 首先我们在 src 下创建一个 css 文件，以 `?__sprite` 来标志是需要合成的图片。
-
-![image-20220724160340903](/Users/wanmian/Library/Application Support/typora-user-images/image-20220724160340903.png)
 
 #### 创建 sprite-loader
 
@@ -420,7 +404,3 @@ document.body.appendChild(div)
 #### 运行 || 打包
 
 可以看到背景图生效了，并且在 dist 下会生成一个图片文件。
-
-![image-20220724171034193](/Users/wanmian/Library/Application Support/typora-user-images/image-20220724171034193.png)
-
-![image-20220724170840635](/Users/wanmian/Library/Application Support/typora-user-images/image-20220724170840635.png)
