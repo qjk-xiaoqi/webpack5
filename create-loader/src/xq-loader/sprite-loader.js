@@ -1,5 +1,5 @@
 const path = require('path')
-const fse = require('fse')
+const fs = require('fs')
 const Spritesmith = require('spritesmith')
 
 module.exports = function (source) {
@@ -15,7 +15,7 @@ module.exports = function (source) {
   }
   Spritesmith.run({ src: matchImgs }, (err, result) => {
     // 将合成的图片写入到 src/images/sprite.jpg 中
-    fse.writeFileSync(path.join(process.cwd(), 'src/images/sprite.jpg'), result.image)
+    fs.writeFileSync(path.join(process.cwd(), 'src/images/sprite.jpg'), result.image)
     // 替换原引入为合成图片的路径
     source = source.replace(/url\((\S*)\?__sprite/g, () => {
       return `url('./images/sprite.jpg'`
