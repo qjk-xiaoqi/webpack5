@@ -1,4 +1,6 @@
 const path = require('path')
+const MyPlugin = require('./src/xq-plugin/my-plugin')
+const ZipPlugin = require('./src/xq-plugin/zip-plugin')
 
 module.exports = {
   mode: 'development', // 以什么模式进行打包
@@ -10,4 +12,10 @@ module.exports = {
   devServer: {
     static: './dist',
   },
+  plugins: [
+    // new MyPlugin(),
+    new ZipPlugin({
+      fileName: 'offline',
+    }),
+  ],
 }
