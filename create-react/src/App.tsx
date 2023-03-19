@@ -1,7 +1,8 @@
 import * as React from 'react'
+import './index.less'
 
 const App: React.FC = () => {
-  return <div>hello 小柒</div>
+  return <div className="wrapper">hello 小柒</div>
 }
 
 export default App
