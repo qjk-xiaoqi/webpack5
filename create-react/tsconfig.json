@@ -1,11 +1,20 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNext",                                                                        
+    "jsx": "preserve", 
+    "module": "ESNext",                                                
     "moduleResolution": "node",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "jsx": "preserve",
-    "strict": true,
+    "rootDir": "./src",                     
+    "baseUrl": ".",                                  
+    "paths": {
+      "common/*": [
+        "src/common/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    },      
+    "strict": true,                                 
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -14,14 +23,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,
     "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "common/*": [
-        "src/common/*"
-      ],
-      "@/*": [
-        "src/*"
-      ]
-    }
-  }
+    "skipLibCheck": true                        
+  },
+  "include": ["src"]
 }
