@@ -28,6 +28,7 @@ module.exports = merge(base, {
     ],
   },
   devServer: {
+    open: true, // 编译完自动打开浏览器
     port: 8080,
   },
 })

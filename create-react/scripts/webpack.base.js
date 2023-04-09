@@ -38,31 +38,44 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/i,
-        use: [
-          {
-            loader: 'file-loader',
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 25 * 1024, // 25kb
           },
-          // {
-          //   loader: 'url-loader',
-          //   options: {
-          //     limit: 2000,
-          //     // //限制打包图片的大小：
-          //     // //如果大于或等于2000Byte，则按照相应的文件名和路径打包图片；如果小于2000Byte，则将图片转成base64格式的字符串。
-          //     // name: 'img/[name].[hash:8].[ext]',
-          //     // //img:图片打包的文件夹；
-          //     // //[name].[ext]：设定图片按照本来的文件名和扩展名打包，不用进行额外编码
-          //     // //[hash:8]：一个项目中如果两个文件夹中的图片重名，打包图片就会被覆盖，加上hash值的前八位作为图片名，可以避免重名。
-          //   },
-          // },
-        ],
+        },
+        generator: {
+          filename: 'assets/imgs/[name].[hash:8][ext]',
+        },
+        // use: [
+        //   // {
+        //   //   loader: 'file-loader',
+        //   // },
+        //   {
+        //     loader: 'url-loader',
+        //     options: {
+        //       limit: 2000,
+        //       // //限制打包图片的大小：
+        //       // //如果大于或等于2000Byte，则按照相应的文件名和路径打包图片；如果小于2000Byte，则将图片转成base64格式的字符串。
+        //       // name: 'img/[name].[hash:8].[ext]',
+        //       // //img:图片打包的文件夹；
+        //       // //[name].[ext]：设定图片按照本来的文件名和扩展名打包，不用进行额外编码
+        //       // //[hash:8]：一个项目中如果两个文件夹中的图片重名，打包图片就会被覆盖，加上hash值的前八位作为图片名，可以避免重名。
+        //     },
+        //   },
+        // ],
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/i,
-        use: [
-          {
-            loader: 'url-loader',
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 25 * 1024, // 25kb
           },
-        ],
+        },
+        generator: {
+          filename: 'assets/fonts/[name].[hash:8][ext]',
+        },
       },
     ],
   },

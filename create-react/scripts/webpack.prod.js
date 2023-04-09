@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const base = require('./webpack.base.js')
 
 module.exports = merge(base, {
@@ -29,9 +29,19 @@ module.exports = merge(base, {
       },
     ],
   },
+  optimization: {
+    minimizer: [
+      // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`）
+      `...`,
+      new CssMinimizerPlugin({
+        // 默认开启
+        // parallel true:  // 多进程并发执行，提升构建速度 。 运行时默认的并发数：os.cpus().length - 1
+      }),
+    ],
+  },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "assets/css/[hash:8].css",
+      filename: 'assets/css/[hash:8].css',
     }),
   ],
 })
