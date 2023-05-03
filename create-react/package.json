@@ -33,6 +33,7 @@
     "postcss": "^8.4.21",
     "postcss-loader": "^7.1.0",
     "postcss-preset-env": "^8.0.1",
+    "prettier": "^2.8.8",
     "style-loader": "^3.3.2",
     "typescript": "^5.0.3",
     "url-loader": "^4.1.1",
