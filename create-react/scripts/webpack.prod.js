@@ -5,6 +5,7 @@ const base = require('./webpack.base.js')
 
 module.exports = merge(base, {
   mode: 'production', // 生产模式
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -41,7 +42,7 @@ module.exports = merge(base, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[hash:8].css',
+      filename: 'assets/css/[contenthash].css',
     }),
   ],
 })

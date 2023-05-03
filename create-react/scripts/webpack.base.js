@@ -5,7 +5,7 @@ module.exports = {
   entry: path.resolve(__dirname, '../src/index.tsx'),
   output: {
     path: path.resolve(__dirname, '../dist'), // 打包后的代码放在dist目录下
-    filename: '[name].[hash:8].js',
+    filename: '[name].[contenthash].js',
   },
   resolve: {
     extensions: ['.mjs', '.js', '.json', '.jsx', '.ts', '.tsx'],
@@ -74,7 +74,7 @@ module.exports = {
           },
         },
         generator: {
-          filename: 'assets/fonts/[name].[hash:8][ext]',
+          filename: 'assets/fonts/[name].[contenthash][ext]',
         },
       },
     ],
