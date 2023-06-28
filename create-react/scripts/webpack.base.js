@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'), // 打包后的代码放在dist目录下
     filename: '[name].[contenthash].js',
+    clean: true, // 打包前清除dist目录
   },
   resolve: {
     extensions: ['.mjs', '.js', '.json', '.jsx', '.ts', '.tsx'],
@@ -67,12 +68,12 @@ module.exports = {
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/i,
-        type: 'asset',
-        parser: {
-          dataUrlCondition: {
-            maxSize: 25 * 1024, // 25kb
-          },
-        },
+        type: 'asset/resource', // 字体图标不能转化为base64, 这里使用 asset/resource
+        // parser: {
+        //   dataUrlCondition: {
+        //     maxSize: 25 * 1024, // 25kb
+        //   },
+        // },
         generator: {
           filename: 'assets/fonts/[name].[contenthash][ext]',
         },
@@ -80,6 +81,7 @@ module.exports = {
     ],
   },
   plugins: [
+    // 自动引入打包之后的资源
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../index.html'),
     }),
