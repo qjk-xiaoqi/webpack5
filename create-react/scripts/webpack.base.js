@@ -4,9 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: path.resolve(__dirname, '../src/index.tsx'),
   output: {
-    path: path.resolve(__dirname, '../dist'), // 打包后的代码放在dist目录下
     filename: '[name].[contenthash].js',
-    clean: true, // 打包前清除dist目录
   },
   resolve: {
     extensions: ['.mjs', '.js', '.json', '.jsx', '.ts', '.tsx'],
@@ -26,7 +24,7 @@ module.exports = {
               [
                 '@babel/preset-env',
                 {
-                  targets: 'iOS 9, Android 4.4, last 2 versions, > 0.2%, not dead',
+                  // targets: 'iOS 9, Android 4.4, last 2 versions, > 0.2%, not dead',
                   useBuiltIns: 'usage', // 会根据配置的目标环境找出需要的polyfill进行部分引入
                   corejs: 3, // 使用 core-js@3 版本
                 },
