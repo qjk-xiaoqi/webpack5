@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge')
 const base = require('./webpack.base.js')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = merge(base, {
   mode: 'development', // 开发模式
@@ -27,6 +28,7 @@ module.exports = merge(base, {
       },
     ],
   },
+  plugins: [new ReactRefreshWebpackPlugin()], // 添加热更新插件]
   devServer: {
     open: true, // 编译完自动打开浏览器
     port: 8080,
