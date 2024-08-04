@@ -1,5 +1,6 @@
 import './index.css'
-import txt from './async.txt'
+import txt from 'my-async-loader!./async.txt'
+
 import md from './mk.md'
 
 document.write('hello wp')

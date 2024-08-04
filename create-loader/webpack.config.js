@@ -18,18 +18,42 @@ module.exports = {
         use: [
           {
             loader: path.resolve(__dirname, './src/xq-loader/my-loader.js'),
-            options: {
-              name: 'xiaoqi',
-            },
           },
         ],
+      },
+      // {
+      //   test: /\.txt$/,
+      //   use: {
+      //     loader: 'my-async-loader',
+      //   },
+      // },
+      // start ---Loader 顺序----
+      {
+        test: /\.txt$/,
+        use: {
+          loader: 'a-loader',
+        },
+        enforce: 'pre',
       },
       {
         test: /\.txt$/,
         use: {
-          loader: 'my-async-loader',
+          loader: 'c-loader',
         },
+        enforce: 'post',
       },
+      {
+        test: /\.txt$/,
+        use: [
+          {
+            loader: 'd-loader',
+          },
+          {
+            loader: 'b-loader',
+          },
+        ],
+      },
+      // end ---Loader 顺序----
       {
         test: /\.md$/,
         use: [
